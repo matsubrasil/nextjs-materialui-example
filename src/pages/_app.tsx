@@ -22,7 +22,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />
