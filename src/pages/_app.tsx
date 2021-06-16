@@ -13,6 +13,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       jssStyles?.parentElement?.removeChild(jssStyles)
     }
   }, [])
+
   return (
     <>
       <Head>
@@ -23,8 +24,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
         <Component {...pageProps} />
+        <CssBaseline />
       </ThemeProvider>
     </>
   )
