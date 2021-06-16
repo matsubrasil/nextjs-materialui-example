@@ -14,6 +14,21 @@ const theme = createMuiTheme({
     background: {
       default: '#f4f5fd'
     }
+  },
+  // shape: {
+  //   borderRadius: 12
+  // },
+  overrides: {
+    MuiAppBar: {
+      root: {
+        transform: 'translateZ(0)'
+      }
+    }
+  },
+  props: {
+    MuiIconButton: {
+      disableRipple: true
+    }
   }
 })
 

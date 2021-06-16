@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       backgroundColor: '#fff'
+      //transform: 'translateZ(0)'
     },
     searchInput: {
       opacity: '0.6',

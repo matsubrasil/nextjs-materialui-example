@@ -3,6 +3,10 @@ import { makeStyles, createStyles } from '@material-ui/core/styles'
 
 import SideMenu from '../components/SideMenu'
 import Header from '../components/Header'
+import React from 'react'
+import PageHeader from '../components/PageHeader'
+import { PeopleOutlineTwoTone } from '@material-ui/icons'
+
 const useStyles = makeStyles(theme =>
   createStyles({
     appMain: {
@@ -25,6 +29,11 @@ const Home: React.FC = () => {
         <SideMenu />
         <section className={classes.appMain}>
           <Header />
+          <PageHeader
+            title="Page Header"
+            subTitle="Page description"
+            icon={<PeopleOutlineTwoTone fontSize="large" />}
+          />
         </section>
       </main>
     </div>
