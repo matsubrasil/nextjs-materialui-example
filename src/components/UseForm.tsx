@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme =>
@@ -28,6 +28,7 @@ interface IOutput {
   values: IValuesProps
   // setValues: React.Dispatch<React.SetStateAction<IValuesProps>>
   handleInputChange: React.ChangeEventHandler<HTMLInputElement>
+  handleOnClick: (e: React.MouseEvent<Element>) => void
 }
 
 export const useForm = (initialFValues: IValuesProps): IOutput => {
@@ -42,19 +43,15 @@ export const useForm = (initialFValues: IValuesProps): IOutput => {
     })
   }
 
-  const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({
-      ...values,
-      [(event.target as HTMLInputElement).name]: (
-        event.target as HTMLInputElement
-      ).value
-    })
+  const handleOnClick = (event: React.MouseEvent<Element>) => {
+    console.log(event.target)
   }
 
   return {
     values,
     // setValues,
-    handleInputChange
+    handleInputChange,
+    handleOnClick
   }
 }
 

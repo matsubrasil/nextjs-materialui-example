@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import { useForm, Form } from './../components/UseForm'
-import Controls from './../components/controls/Controls'
 import * as employeeService from './../services/employeeService'
+import Controls from './../components/controls/Controls'
 
 const initialFValues = {
   id: 0,
@@ -23,7 +23,7 @@ const genderItems = [
 ]
 
 const EmployeeForm = () => {
-  const { values, handleInputChange } = useForm(initialFValues)
+  const { values, handleInputChange, handleOnClick } = useForm(initialFValues)
 
   return (
     <>
@@ -42,6 +42,18 @@ const EmployeeForm = () => {
               value={values.email}
               onChange={handleInputChange}
             />
+            <Controls.Input
+              name="mobile"
+              label="Mobile"
+              value={values.mobile}
+              onChange={handleInputChange}
+            />
+            <Controls.Input
+              name="city"
+              label="City"
+              value={values.city}
+              onChange={handleInputChange}
+            />
           </Grid>
           <Grid item xs={6}>
             <Controls.RadioGroupControl
@@ -58,6 +70,35 @@ const EmployeeForm = () => {
               onChange={handleInputChange}
               options={employeeService.getDepartmentCollection()}
             />
+            <Controls.DatePickerControl
+              name="hireDate"
+              label="Hire Date Employee"
+              value={values.hireDate}
+              onChange={handleInputChange}
+            />
+            <Controls.CheckboxControl
+              name="isPermanent"
+              label="Permanent Employee"
+              value={values.isPermanent}
+              onChange={handleInputChange}
+            />
+            <div>
+              <Controls.ButtonControl
+                type="submit"
+                text="Submit"
+                size="large"
+                variant="contained"
+                color="primary"
+                onClick={handleOnClick}
+              />
+              <Controls.ButtonControl
+                text="Reset"
+                color="default"
+                size="large"
+                variant="contained"
+                onClick={handleOnClick}
+              />
+            </div>
           </Grid>
         </Grid>
       </Form>
