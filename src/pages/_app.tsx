@@ -4,8 +4,22 @@ import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../styles/theme'
+import SideMenu from '../components/SideMenu'
+import Header from '../components/Header'
+import { makeStyles, createStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme =>
+  createStyles({
+    appMain: {
+      paddingLeft: '320px',
+      width: '100%'
+    }
+  })
+)
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const classes = useStyles()
+
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side')
@@ -24,7 +38,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <SideMenu />
+        <section className={classes.appMain}>
+          <Header />
+          <Component {...pageProps} />
+        </section>
+
         <CssBaseline />
       </ThemeProvider>
     </>
